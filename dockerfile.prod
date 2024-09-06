@@ -15,8 +15,10 @@ RUN npm install
 FROM node:21-alpine3.19 AS build
 
 ARG ORDERS_MICROSERVICE_DATABASE
+ENV DATABASE_URL="postgresql://orders_owner:NPDj1CAysMG8@ep-young-sky-a5mmetsw.us-east-2.aws.neon.tech/orders?sslmode=require"
 
-ENV DATABASE_URL=$ORDERS_MICROSERVICE_DATABASE
+# Luego, puedes imprimirlo para depuración
+RUN echo "DATABASE_URL is: $DATABASE_URL"
 
 WORKDIR /usr/src/app
 
